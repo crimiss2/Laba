@@ -1,0 +1,41 @@
+Siletskiy Vitali KN - B 2 kurs
+class AbstractFactory:
+
+    @staticmethod
+    def get_factory(factory):
+        if factory == 'soccer':
+            return SoccerFactory()
+        elif factory == 'volley':
+            return VolleyFactory()
+        raise TypeError('Unknown Factory.')
+
+
+#Factory
+class SoccerFactory:
+    def get_ball(self):
+        return BallSoccer()
+
+
+class VolleyFactory:
+    def get_ball(self):
+        return BallVolley()
+
+
+# Product Interface
+class Ball:
+    __metaclass__ = ABCMeta
+
+    @abstractmethod
+    def play(self):
+        pass
+
+
+# Products
+class BallSoccer(Ball):
+    def play(self):
+        return 'Ball is rolling...'
+
+
+class BallVolley(Ball):
+    def play(self):
+        return 'Ball is flying!'
