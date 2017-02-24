@@ -1,0 +1,9 @@
+class Presidents:
+    __names = ("George Washingon","John Adams","Thomas Jefferson", "Bill Clinton", "George/ W. Bush", "Barack Obama " )
+    def __init__(self, first=None):
+        self.index = (-1 if first is None else Presidents.__names.index(first) - 1)
+    def __call__(self):
+        self.index +=1
+        if self.index < len(Presidents.__names):
+            return Presidents.__names[self.index]
+        raise StopIteration()
